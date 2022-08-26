@@ -1,9 +1,15 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import { Box, FormControl, TextField as Text } from '@mui/material';
+import { handleAmountChange } from '../redux/actions';
 
 function TextField() {
-	const handleChange = () => {};
+	const dispatch = useDispatch();
+
+	const handleChange = (e) => {
+		dispatch(handleAmountChange(e.target.value));
+	};
 
 	return (
 		<Box mt={3} width='100%'>

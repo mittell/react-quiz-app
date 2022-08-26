@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Typography, Box, Button, CircularProgress } from '@mui/material';
 import SelectField from '../components/SelectField';
@@ -7,6 +8,7 @@ import useAxios from '../hooks/useAxios';
 
 function Settings() {
 	const { response, error, loading } = useAxios({ url: '/api_category.php' });
+	const navigate = useNavigate();
 
 	if (loading) {
 		return (
@@ -37,6 +39,8 @@ function Settings() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		// navigate('/home', {replace: true});
+		navigate('/questions');
 	};
 
 	return (
