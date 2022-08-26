@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Box, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
-function SelectField({ label }) {
+function SelectField({ label, options }) {
 	const [value, setValue] = useState('');
 
 	const handleChange = () => {};
@@ -12,9 +12,9 @@ function SelectField({ label }) {
 			<FormControl size='small' fullWidth>
 				<InputLabel>{label}</InputLabel>
 				<Select value={value} label={label} onChange={handleChange}>
-					<MenuItem>Option1</MenuItem>
-					<MenuItem>Option2</MenuItem>
-					<MenuItem>Option3</MenuItem>
+					{options.map(({ id, name }) => (
+						<MenuItem key={id}>{name}</MenuItem>
+					))}
 				</Select>
 			</FormControl>
 		</Box>
